@@ -7,6 +7,8 @@ root 'pages#home'
  resources :users, only: [:create, :new]
  resources :users_sessions, only: [:create, :new]
   
+resources :admins, only: [:create, :new]
+
   get 'pages/home'
   get 'pages/email'
 
