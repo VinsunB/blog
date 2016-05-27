@@ -4,8 +4,10 @@ root 'pages#home'
 
  resources :posts
 
+ resources :users, only: [:create, :new]
+ resources :users_sessions, only: [:create, :new]
+  
   get 'pages/home'
-
   get 'pages/email'
 
   # The priority is based upon order of creation: first created -> highest priority.
