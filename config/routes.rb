@@ -9,8 +9,7 @@ root 'pages#home'
   
 resources :admins, only: [:create, :new, :destroy]
 
-  get 'pages/home'
-  get 'pages/email'
+resources :contacts, only: [:create, :new]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
