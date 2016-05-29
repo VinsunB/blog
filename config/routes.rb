@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 root 'pages#home'
 
  resources :posts do 
-resources :comments, only: [:create]
+resources :comments, only: [:create, :new]
 end
 
  resources :users, only: [:create, :new]

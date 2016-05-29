@@ -1,0 +1,34 @@
+
+<% @post.comments.arrange.each do |comment| %>
+<p><%= comment[0].body 
+%>
+ <br>
+ <%= link_to "Reply" %> 
+<%= form_for [@post, @post.comments.build ] do |f| %>
+<p> comment </p>
+
+
+<%= f.hidden_field :parent_id, :value =>  comment[0].id %>
+<%= f.text_area :body%>
+<br>
+<%= f.submit %>
+<% end %>
+
+</p>
+
+
+
+<% comment[0].descendants.each do |child| %>
+<div class="child">
+<p>
+<%= child.body %>
+<br>
+<%= link_to "Reply", new_post_comment_path(post_id: @post, :parent_id => child) %> 
+</p>
+</div>
+
+<% end %>
+
+
+
+<% end %>
