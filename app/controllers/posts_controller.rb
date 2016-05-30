@@ -3,6 +3,12 @@ before_action :find_post, only: [:edit, :update, :show, :destroy]
 before_action :authenticate_admin, except: [:show, :index]
 
   def show
+  @comments_array =  []
+
+@post.comments.arrange.each do |comment|
+  @comments_array << comment[0]
+end
+
   end
 
 def edit

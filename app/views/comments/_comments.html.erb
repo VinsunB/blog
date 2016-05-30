@@ -1,6 +1,8 @@
 
-<% @post.comments.arrange.each do |comment| %>
-<p><%= comment[0].body 
+<%# #@post.comments.arrange.each do |comment| %>
+<% @comments_array.reverse.each do |comment| %>
+<div class="box">
+<p><%= comment.body 
 %>
  <br>
  <%= link_to "Reply" %> 
@@ -8,7 +10,7 @@
 <p> comment </p>
 
 
-<%= f.hidden_field :parent_id, :value =>  comment[0].id %>
+<%= f.hidden_field :parent_id, :value =>  comment.id %>
 <%= f.text_area :body%>
 <br>
 <%= f.submit %>
@@ -18,17 +20,18 @@
 
 
 
-<% comment[0].descendants.each do |child| %>
+<% comment.descendants.reverse.each do |child| %>
 <div class="child">
 <p>
 <%= child.body %>
 <br>
-<%= link_to "Reply", new_post_comment_path(post_id: @post, :parent_id => child) %> 
+<%= link_to "Reply"#, new_post_comment_path(post_id: @post, :parent_id => child)
+ %> 
 </p>
 </div>
 
 <% end %>
 
 
-
+</div>
 <% end %>

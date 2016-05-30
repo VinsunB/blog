@@ -18,3 +18,8 @@
 .child {
 	margin-left: 20px;
 }
+
+.box {
+	border: solid black 1px;
+margin-bottom: 5px;
+}
