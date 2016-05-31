@@ -1,37 +1,35 @@
 
-<%# #@post.comments.arrange.each do |comment| %>
-<% @comments_array.reverse.each do |comment| %>
+<% @comments_array.reverse.each_with_index do |comment, index| %>
 <div class="box">
 <p><%= comment.body 
 %>
  <br>
- <%= link_to "Reply" %> 
+<div class="reply_form_button">reply </div>
+<div class="reply_form">
 <%= form_for [@post, @post.comments.build ] do |f| %>
 <p> comment </p>
-
 
 <%= f.hidden_field :parent_id, :value =>  comment.id %>
 <%= f.text_area :body%>
 <br>
 <%= f.submit %>
 <% end %>
+</div>
 
 </p>
-
-
-
-<% comment.descendants.reverse.each do |child| %>
-<div class="child">
+<div class="show_replies">show replies </div>
+<div class="replies">
 <p>
+<% comment.descendants.reverse.each do |child| %>
 <%= child.body %>
 <br>
-<%= link_to "Reply"#, new_post_comment_path(post_id: @post, :parent_id => child)
- %> 
+<%#= link_to "Reply"#, new_post_comment_path(post_id: @post, :parent_id => child) %> 
 </p>
+
+<% end %>
 </div>
 
 <% end %>
 
-
-</div>
-<% end %>
+<script src="javascript/posts.js"> </script>
+<div id="a"> a div </div>

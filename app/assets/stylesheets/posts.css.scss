@@ -1,3 +1,24 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.reply_form_button:hover {
+cursor: pointer;
+}
+
+
+.show_replies:hover {
+cursor: pointer;
+}
+
+
+
+.reply_form_button {
+color: blue;
+}
+
+
+.show_replies {
+color: blue;
+}
+
