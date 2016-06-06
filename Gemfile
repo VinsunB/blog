@@ -31,6 +31,8 @@ gem 'spring',        group: :development
 gem 'ancestry'
 gem 'figaro'
 
+
+gem 'jquery-turbolinks'
 # Use unicorn as the app server
 # gem 'unicorn'
 
